@@ -1,0 +1,57 @@
+{
+  "name": "@enclave/secure-storage",
+  "version": "0.1.0",
+  "description": "Cross-platform secure storage for secret bytes (web / Expo / Tauri)",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./web": {
+      "types": "./dist/providers/web-passphrase.d.ts",
+      "import": "./dist/providers/web-passphrase.js"
+    },
+    "./expo": {
+      "types": "./dist/providers/expo-secure-store.d.ts",
+      "import": "./dist/providers/expo-secure-store.js"
+    },
+    "./tauri": {
+      "types": "./dist/providers/tauri-keyring.d.ts",
+      "import": "./dist/providers/tauri-keyring.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@enclave/pqc-primitives": "file:../enclave-pqc-primitives"
+  },
+  "peerDependencies": {
+    "expo-secure-store": ">=13.0.0",
+    "tauri-plugin-keyring-store-api": ">=0.2.0"
+  },
+  "peerDependenciesMeta": {
+    "expo-secure-store": { "optional": true },
+    "tauri-plugin-keyring-store-api": { "optional": true }
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "fake-indexeddb": "^6.0.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Enclave-Inc/enclave-secure-storage"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
