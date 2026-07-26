@@ -41,13 +41,15 @@ npm install @enclave/secure-storage
 #   tauri-plugin-keyring-store-api  (+ Rust crate tauri-plugin-keyring-store)
 ```
 
-Local monorepo:
+`@enclave/pqc-primitives` is installed automatically (web provider). For local
+development before npm publish:
 
-```json
-"@enclave/secure-storage": "file:../../Enclave-Inc/enclave-secure-storage"
+```bash
+cd ../enclave-pqc-primitives && npm run build
+cd ../enclave-secure-storage
+npm install
+npm install ../enclave-pqc-primitives
 ```
-
-Build `@enclave/pqc-primitives` first (web provider depends on it).
 
 ## Usage
 
@@ -88,8 +90,10 @@ This package uses [`tauri-plugin-keyring-store`](https://github.com/s00d/tauri-p
 | Web | Real `@enclave/pqc-primitives` + `fake-indexeddb` |
 | Expo / Tauri | **Mocked** backends — live OS keyrings are not exercised in CI |
 
-## Scope (non-goals)
+## License
 
-- No auth / identity / session concepts
+**Apache-2.0** — see [`LICENSE`](./LICENSE).
+
+## Scope (non-goals)
 - No Encrypt integration or telemetry for `StorageUsageRecord`
 - No WebAuthn provider in this version

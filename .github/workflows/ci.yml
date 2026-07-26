@@ -1,0 +1,37 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: enclave-secure-storage
+
+      - uses: actions/checkout@v4
+        with:
+          repository: Enclave-Inc/enclave-pqc-primitives
+          path: enclave-pqc-primitives
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build @enclave/pqc-primitives
+        working-directory: enclave-pqc-primitives
+        run: |
+          npm ci
+          npm run build
+
+      - name: Test secure-storage
+        working-directory: enclave-secure-storage
+        run: |
+          npm ci
+          npm install ../enclave-pqc-primitives
+          npm run build
+          npm test

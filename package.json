@@ -24,14 +24,24 @@
       "import": "./dist/providers/tauri-keyring.js"
     }
   },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@enclave/pqc-primitives": "file:../enclave-pqc-primitives"
+    "@enclave/pqc-primitives": "^0.1.0"
   },
   "peerDependencies": {
     "expo-secure-store": ">=13.0.0",
