@@ -1,6 +1,6 @@
 # Publish @enclave-technologies/secure-storage to npm on GitHub Release (tag e.g. v0.1.0).
 # Requires @enclave-technologies/pqc-primitives on npm first.
-# Required secret: NPM_TOKEN
+# Requires one-time manual first publish, then npm Trusted Publisher (OIDC).
 
 name: publish
 
@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   publish-npm:
@@ -20,14 +21,14 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           registry-url: https://registry.npmjs.org
+
+      - run: npm install -g npm@latest
 
       - run: npm ci
       - run: npm run build
       - run: npm test
 
-      - name: Publish to npm
+      - name: Publish to npm (OIDC Trusted Publishing)
         run: npm publish --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
