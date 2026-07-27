@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Build @enclave/pqc-primitives
+      - name: Build @enclave-technologies/pqc-primitives
         working-directory: enclave-pqc-primitives
         run: |
           npm ci

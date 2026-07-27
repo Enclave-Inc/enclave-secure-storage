@@ -1,5 +1,5 @@
 /**
- * `@enclave/secure-storage` — opaque secret-byte storage across platforms.
+ * `@enclave-technologies/secure-storage` — opaque secret-byte storage across platforms.
  *
  * Mobile/desktop: OS-backed (no passphrase). Web: passphrase + IndexedDB.
  * No product/auth/session concepts here.

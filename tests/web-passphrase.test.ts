@@ -1,6 +1,6 @@
 import "fake-indexeddb/auto";
 import { beforeAll, describe, expect, it } from "vitest";
-import { runSelfTests } from "@enclave/pqc-primitives";
+import { runSelfTests } from "@enclave-technologies/pqc-primitives";
 
 import {
   PassphraseRequiredError,

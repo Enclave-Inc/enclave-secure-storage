@@ -1,5 +1,5 @@
 {
-  "name": "@enclave/secure-storage",
+  "name": "@enclave-technologies/secure-storage",
   "version": "0.1.0",
   "description": "Cross-platform secure storage for secret bytes (web / Expo / Tauri)",
   "license": "Apache-2.0",
@@ -41,7 +41,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@enclave/pqc-primitives": "^0.1.0"
+    "@enclave-technologies/pqc-primitives": "^0.1.0"
   },
   "peerDependencies": {
     "expo-secure-store": ">=13.0.0",

@@ -1,5 +1,5 @@
-# Publish @enclave/secure-storage to npm on GitHub Release (tag e.g. v0.1.0).
-# Requires @enclave/pqc-primitives on npm first.
+# Publish @enclave-technologies/secure-storage to npm on GitHub Release (tag e.g. v0.1.0).
+# Requires @enclave-technologies/pqc-primitives on npm first.
 # Required secret: NPM_TOKEN
 
 name: publish

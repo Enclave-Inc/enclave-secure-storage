@@ -14,7 +14,7 @@ import {
   aeadDecrypt,
   aeadEncrypt,
   labeledKdf,
-} from "@enclave/pqc-primitives";
+} from "@enclave-technologies/pqc-primitives";
 
 import { PassphraseRequiredError } from "../errors.js";
 import {

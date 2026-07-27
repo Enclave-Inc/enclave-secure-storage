@@ -1,4 +1,4 @@
-# @enclave/secure-storage
+# @enclave-technologies/secure-storage
 
 Cross-platform storage for **opaque secret bytes** (key seeds, tokens, etc.)
 so product apps do not each reinvent web / mobile / desktop backends.
@@ -26,7 +26,7 @@ require call-site changes. It is **not** implemented in this package yet.
 `getLastStorageEvent()` returns the most recent operation on that provider
 instance (including failures with `success: false`). Records are **not**
 persisted, logged, or sent anywhere by this package — same posture as
-`@enclave/pqc-primitives` `getLastUsageRecord()`. Future consumers (e.g.
+`@enclave-technologies/pqc-primitives` `getLastUsageRecord()`. Future consumers (e.g.
 Encrypt key-lifecycle) may read them.
 
 `providerName` distinguishes assurance levels (`expo-secure-store` /
@@ -35,13 +35,13 @@ Encrypt key-lifecycle) may read them.
 ## Install
 
 ```bash
-npm install @enclave/secure-storage
+npm install @enclave-technologies/secure-storage
 # peers as needed:
 #   expo-secure-store
 #   tauri-plugin-keyring-store-api  (+ Rust crate tauri-plugin-keyring-store)
 ```
 
-`@enclave/pqc-primitives` is installed automatically (web provider). For local
+`@enclave-technologies/pqc-primitives` is installed automatically (web provider). For local
 development before npm publish:
 
 ```bash
@@ -54,7 +54,7 @@ npm install ../enclave-pqc-primitives
 ## Usage
 
 ```ts
-import { getPlatformSecureStorage } from "@enclave/secure-storage";
+import { getPlatformSecureStorage } from "@enclave-technologies/secure-storage";
 
 // Web must supply a passphrase (or async getter). Mobile/desktop ignore it.
 const storage = getPlatformSecureStorage({
@@ -87,7 +87,7 @@ This package uses [`tauri-plugin-keyring-store`](https://github.com/s00d/tauri-p
 
 | Provider | CI coverage |
 |----------|-------------|
-| Web | Real `@enclave/pqc-primitives` + `fake-indexeddb` |
+| Web | Real `@enclave-technologies/pqc-primitives` + `fake-indexeddb` |
 | Expo / Tauri | **Mocked** backends — live OS keyrings are not exercised in CI |
 
 ## License
