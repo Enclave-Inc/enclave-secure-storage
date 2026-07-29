@@ -1,6 +1,6 @@
 {
   "name": "@enclave-technologies/secure-storage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Cross-platform secure storage for secret bytes (web / Expo / Tauri)",
   "license": "Apache-2.0",
   "type": "module",
